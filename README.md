@@ -42,6 +42,7 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+ Closure is used when a function needs to access a variable or object outside of itself.
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +64,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+   at function(), you can tell because it accessing something outside of the function when the brackets are empty.
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+  The name will always be the same, but the number will change.
 c. What is the lexical scope of `newRoll`? 
+It set the range between numbers 1 and 6.
 
 ### Task 2c - Exit Ticket
 
