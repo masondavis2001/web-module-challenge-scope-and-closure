@@ -27,18 +27,18 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ * counter1 does not use a closure, but counter2 does use a closure.
  * 2. Which of the two uses a closure? How can you tell?
- * 
+ *  Counter 2, as the let statement is outside of the local area.
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ * If you did not need to access a variable outside of the function.
 */
 
 // counter1 code
 function counterMaker() {
   let count = 0;
   return function counter() {
-   return count++;
+    return count++;
   }
 }
 
@@ -56,12 +56,14 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning(min, max) {
 
-    /*Code Here*/
+  min = Math.ceil(0);
+  max = Math.floor(2);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 
 }
-
+console.log(inning(0, 1, 2))
 /* Task 3: finalScore()
 
 Write a higher order function called `finalScore` that accepts the callback function `inning` (from above) and a number of innings and and returns the final score of the game in the form of an object.
@@ -74,14 +76,17 @@ finalScore(inning, 9) might return:
   "Away": 5,
 }
 
-*/ 
+*/
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(innings) {
+  innings = 9
+  let homeScore = (inning(0, 1, 2)) * 9 * Math.random(2);
+  let finalHomeScore = Math.ceil(homeScore);
+  let awayScore = (inning(0, 1, 2)) * 9 * Math.random(2);
+  let finalAwayScore = Math.ceil(awayScore);
+  return `Home: ${finalHomeScore} Away: ${finalAwayScore} `;
 }
-
+console.log(finalScore())
 /* Task 4: 
 
 Create a function called `scoreboard` that accepts the following parameters: 
@@ -103,8 +108,42 @@ and returns the score at each pont in the game, like so:
 
 Final Score: 6 - 10 */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
-}
+function scoreboard(inningNumber) {
 
+  let homeScore = (inning(0, 1, 2)) * 9 * Math.random(2);
+  let finalHomeScore = Math.ceil(homeScore);
+  let awayScore = (inning(0, 1, 2)) * 9 * Math.random(2);
+  let finalAwayScore = Math.ceil(awayScore);
+
+  if (inningNumber === 1) {
+    return `1st inning: ${finalHomeScore} - ${finalAwayScore}`;
+  }
+  else if (inningNumber === 2) {
+    return `2nd inning: ${finalHomeScore} - ${finalAwayScore}`;
+  }
+  else if (inningNumber === 3) {
+    return `3rd inning: ${finalHomeScore} - ${finalAwayScore}`;
+  }
+  else if (inningNumber === 4) {
+    return `4th inning: ${finalHomeScore} - ${finalAwayScore}`;
+  }
+  else if (inningNumber === 5) {
+    return `5th inning: ${finalHomeScore} - ${finalAwayScore}`;
+  }
+  else if (inningNumber === 6) {
+    return `6th inning: ${finalHomeScore} - ${finalAwayScore}`;
+  }
+  else if (inningNumber === 7) {
+    return `7th inning: ${finalHomeScore} - ${finalAwayScore}`;
+  }
+  else if (inningNumber === 8) {
+    return `8th inning: ${finalHomeScore} - ${finalAwayScore}`;
+  }
+  else if (inningNumber === 9) {
+    return `9th inning: ${finalHomeScore} - ${finalAwayScore}`;
+  }
+  else (inningNumber === 10)
+  return `Final Score: ${finalHomeScore} - ${finalAwayScore}`;
+}
+console.log(scoreboard(10));
 
